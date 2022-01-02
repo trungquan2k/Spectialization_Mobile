@@ -41,19 +41,9 @@ export default function LoginForm({ navigation }) {
         navigation.navigate("Home", {
           user: username,
         });
-      }else{
-        alert("User or Password is incorrect");
       }
     })
-    // if (username == "trungquan2k" && password == "password") {
-    //   // navigation.navigate('HomeScreen');
-    //   navigation.navigate("Home", {
-    //     paramKey: username,
-    //   });
-    // } else {
-    //   alert("User or Password is incorrect");
-    //   return;
-    // }
+
   };
 
   const image = {
