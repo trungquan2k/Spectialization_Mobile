@@ -8,17 +8,17 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[
+        totalEffort: time.getHours()+"Hours",
+        payDetail:
             {
-                id:123,
+                id:"123",
                 UoM:"Kilogram",
                 rate:"$12000",
-                quantity:25,
+                quantity:"25",
                 proposed_value:"$25000",
                 comment:"text1"
             }
-        ]
+        
     },
     {
         id:"41",
@@ -27,15 +27,15 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[{
+        totalEffort: time.getHours()+"Hours",
+        payDetail:{
             id:123,
             UoM:"Kilogram",
             rate:"$12000",
             quantity:25,
             proposed_value:"$25000",
             comment:"text"
-        }]
+        }
     },
     {
         id:"84",
@@ -44,15 +44,15 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[{
+        totalEffort: time.getHours()+"Hours",
+        payDetail:{
             id:123,
             UoM:"Kilogram",
             rate:"$12000",
             quantity:25,
             proposed_value:"$25000",
             comment:"text"
-        }]
+        }
     },
     {
         id:"75",
@@ -61,15 +61,15 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[{
+        totalEffort: time.getHours()+"Hours",
+        payDetail:{
             id:123,
             UoM:"Kilogram",
             rate:"$12000",
             quantity:25,
             proposed_value:"$25000",
             comment:"text"
-        }]
+        }
     },
     {
         id:"79",
@@ -78,15 +78,15 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[{
+        totalEffort: time.getHours()+"Hours",
+        payDetail:{
             id:123,
             UoM:"Kilogram",
             rate:"$12000",
             quantity:25,
             proposed_value:"$25000",
             comment:"text"
-        }]
+        }
     },
     {
         id:"75",
@@ -95,15 +95,15 @@ const Data = [
         foreMan: "Erin Maker",
         engineer: "Firmin Li",
         location: "Lorem ipsum dolor sit amet, consectetur ",
-        totalEffort: time.getTime()+"Hours",
-        payDetail:[{
+        totalEffort: time.getHours()+"Hours",
+        payDetail:{
             id:123,
             UoM:"Kilogram",
             rate:"$12000",
             quantity:25,
             proposed_value:"$25000",
             comment:"text"
-        }]
+        }
     },
   ];
   

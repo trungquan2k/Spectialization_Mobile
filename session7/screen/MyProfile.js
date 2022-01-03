@@ -7,8 +7,7 @@ const MyProfile = ({ route }) => {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <View style={{ flex: 1 }}> 
-        <Text>Profile</Text>     
-          {/* <Text>{route.params.user}</Text> */}
+         
         </View>
       </SafeAreaView>
     );

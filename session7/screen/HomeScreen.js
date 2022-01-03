@@ -1,84 +1,51 @@
 
 import React from "react";
-import { View, Text, SafeAreaView, Image, Alert } from "react-native";
-
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
-import MyRecordScreen from "./MyRecordScreen";
-import MyProfile from "./MyProfile";
-const Tab = createBottomTabNavigator();
-
-function Home() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>HOme</Text>
-    </View>
-  );
-}
-
-
-function SiteEvent() {
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Site Event!</Text>
-    </View>
-  );
-}
-
-const MyTabs = () => {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home1"
-        component={Home}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <Ionicons name="home-outline" size={20} color="gray" />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="My Records"
-        component={MyRecordScreen}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <Ionicons name="newspaper-outline" size={20} color="gray" />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="My TimeSheet"
-        component={SiteEvent}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => <Ionicons name="calendar" size={20} color="gray" />,
-        }}
-      />
-      <Tab.Screen
-        name="My Profile"
-        component={MyProfile}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <Ionicons name="people-outline" size={20} color="gray" />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-};
+import { View, Text, SafeAreaView, Image, StyleSheet } from "react-native";
+import BottomTab from "./components/BottomTab";
 
 const HomeScreen = ({ route }) => {
+
+  const ViewUserAccount = (title) => (
+    <View style={styles.viewCard}>
+      <Text style={styles.title}>
+        {title}
+      </Text>
+    </View>
+  );
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1 }}>      
-      <Text>{route.params.user}</Text>
-        <MyTabs />
+      <View style={{ flex: 1 }}>
+        <View style={styles.viewCard}>
+          <Text style={styles.title}>{!!route.params.user ? route.params.user : <Text>No user select</Text>}</Text>
+        </View>
+        
+        <BottomTab />
       </View>
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  viewCard: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0,
+    shadowRadius: 4.65,
+    elevation: 1,
+    width: "100%",
+    padding: 15,
+    backgroundColor: "white",
+    marginTop: 10,
+    flexWrap: "wrap",
+    borderRadius: 5
+  },
+  title: {
+    color: "black",
+    fontWeight: "bold"
+  },
+})
 
 export default HomeScreen;

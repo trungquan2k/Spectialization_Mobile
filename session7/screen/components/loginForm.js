@@ -1,32 +1,33 @@
-import { StyleSheet, Text, View, Image, TextInput, Button } from "react-native";
+
 import { useState } from "react";
+import { StyleSheet, Text, View, Image, TextInput, Button, Alert } from "react-native";
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginForm({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [errortext, setErrortext] = useState("");
 
   // const passwordInputRef = createRef();
   const account = [
     {
       username: "hoangtrungquan",
       password: "password1",
-      image:'../../assets/image/anh.jpg'
+      image: '../../assets/image/anh.jpg'
     },
     {
       username: "trungquan2k",
       password: "password2",
-      image:'../../assets/image/anhhoanhao.jpg'
+      image: '../../assets/image/anhhoanhao.jpg'
     },
     {
       username: "quandeptrai",
       password: "password3",
-      image:'../../assets/image/sy.jpg'
+      image: '../../assets/image/sy.jpg'
     },
   ];
   const handleLogin = () => {
-    setErrortext("");
     if (!username) {
       alert("Please fill Email");
       return;
@@ -35,20 +36,19 @@ export default function LoginForm({ navigation }) {
       alert("Please fill Password");
       return;
     }
-    setLoading(true);
-    account.map((user)=>{
-      if(username==user.username && password==user.password){
+    account.map((user) => {
+      if (username == user.username && password == user.password) {
         navigation.navigate("Home", {
           user: username,
         });
+        setLoading(true);
       }
     })
-
   };
-
   const image = {
     uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTemetzYu4yz3rh4jSAddGDc7BFOGTYNv34NafoxgHiz9fRxJM949kwPC_sOEzWcgvUXLY&usqp=CAU",
   };
+
   return (
     <View style={styles.container}>
       <Image
