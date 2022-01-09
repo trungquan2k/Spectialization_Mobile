@@ -1,0 +1,128 @@
+import { initializeApp } from "firebase/app";
+
+import { getAnalytics } from "firebase/analytics";
+
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAP4Id2O5VpVCXPre1c67133gK6kS4BcuI",
+  authDomain: "reactnativeproject-c0a0e.firebaseapp.com",
+  projectId: "reactnativeproject-c0a0e",
+  storageBucket: "reactnativeproject-c0a0e.appspot.com",
+  messagingSenderId: "908868505639",
+  appId: "1:908868505639:web:d555f88efe19788e1ebe02",
+  measurementId: "G-9CF2FYH5Y3"
+};
+
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
+
+let app;
+if (firebase.apps.length === 0) {
+  app = firebase.initializeApp(firebaseConfig);
+} else {
+  app = firebase.app()
+}
+
+const auth = firebase.auth()
+
+export { auth };
+
+
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './src/LoginScreen';
+import HomeScreen from './src/HomeScreen';
+import CreateComponent from './src/component/CreateComponent';
+import ReadComponent from './src/component/ReadComponent';
+import UpdateComponent from './src/component/UpdateComponent';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import DashboardStack from './src/stacknavigation/DashboardStack';
+
+import { Ionicons } from "@expo/vector-icons";
+import AuthStackScreen from './src/stacknavigation/HomeStack';
+
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function CrudStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: 'blue',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}
+    >
+      <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} />
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="CreateComponent"
+        component={CreateComponent}
+        options={{ title: 'Create' }}
+      />
+      <Stack.Screen
+        name="ReadComponent"
+        component={ReadComponent}
+        options={{ title: 'List' }}
+      />
+      <Stack.Screen
+        name="UpdateComponent"
+        component={UpdateComponent}
+        options={{ title: 'Update' }}
+      />
+
+    </Stack.Navigator>
+  );
+}
+
+export default function App() {
+  return (
+
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="AuthStack"
+        tabBarOptions={{
+          activeTintColor: '#42f44b',
+        }}>
+        <Tab.Screen
+          name="AuthStack"
+          component={AuthStackScreen}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="home-outline" size={20} color="gray" />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="DashboardStack"
+          component={DashboardStack}
+          options={{
+            tabBarLabel: 'Dashboard',
+            tabBarIcon: ({ color, size }) => (
+              <Ionicons name="newspaper-outline" size={20} color="gray" />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
